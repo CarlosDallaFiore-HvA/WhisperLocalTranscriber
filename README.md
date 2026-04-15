@@ -23,8 +23,7 @@ MP3, WAV, FLAC, M4A, OGG, WebM, MP4 (max 500MB)
 
 ## Requirements
 
-- **macOS** (tested on M4 Pro, works on Intel Macs too)
-- **Python 3.8-3.12** (Python 3.13 may have compatibility issues)
+- **Python 3.8+
 - **16GB+ RAM recommended** (8GB minimum for Turbo model)
 - **FFmpeg** (for audio processing)
 - **5-10GB disk space** (for Whisper models)
