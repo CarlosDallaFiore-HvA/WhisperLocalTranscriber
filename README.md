@@ -8,14 +8,14 @@ A secure, local audio transcription application powered by OpenAI's Whisper mode
 
 ## Features
 
-- 🎙️ **Local Processing** - All transcription happens on your machine
-- 🚀 **Multiple Models** - Choose between Turbo (fast) or Large (accurate)
-- 🌐 **99 Languages** - Auto-detect or manually select from 99+ languages
-- 🔄 **Translation** - Translate non-English audio to English (Large model)
-- 📁 **Drag & Drop** - Easy file upload interface
-- 💾 **Export Options** - Copy to clipboard or download as text file
-- 📊 **Real-time Progress** - Visual feedback during transcription
-- 🎨 **Modern UI** - Clean, responsive web interface
+- **Local Processing** - All transcription happens on your machine
+- **Multiple Models** - Choose between Turbo (fast) or Large (accurate)
+- **99 Languages** - Auto-detect or manually select from 99+ languages
+- **Translation** - Translate non-English audio to English (Large model)
+- **Drag & Drop** - Easy file upload interface
+- **Export Options** - Copy to clipboard or download as text file
+- **Real-time Progress** - Visual feedback during transcription
+- **Modern UI** - Clean, responsive web interface
 
 ## Supported Audio Formats
 
@@ -23,7 +23,7 @@ MP3, WAV, FLAC, M4A, OGG, WebM, MP4 (max 500MB)
 
 ## Requirements
 
-- **Python 3.8+
+- **Python 3.8+**
 - **16GB+ RAM recommended** (8GB minimum for Turbo model)
 - **FFmpeg** (for audio processing)
 - **5-10GB disk space** (for Whisper models)
@@ -32,50 +32,43 @@ MP3, WAV, FLAC, M4A, OGG, WebM, MP4 (max 500MB)
 
 ### 1. Install Homebrew (if not already installed)
 
-```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
+
 
 ### 2. Install FFmpeg
 
-```bash
 brew install ffmpeg
-```
+
 
 ### 3. Clone the Repository
 
-```bash
 git clone https://github.com/yourusername/whisper-transcription.git
 cd whisper-transcription
-```
+
 
 ### 4. Create Virtual Environment
 
-```bash
 python3 -m venv whisper-venv
 source whisper-venv/bin/activate
-```
+
 
 ### 5. Install Dependencies
 
 Using the included `requirements.txt`:
 
-```bash
+
 pip install --upgrade pip
 pip install -r requirements.txt
-```
+
 
 Or install manually:
 
-```bash
 pip install flask flask-cors openai-whisper
-```
+
 
 ### 6. First Run (Downloads Models)
 
-```bash
 python3 app.py
-```
 
 The first time you run the server, it will download the selected Whisper model:
 - **Turbo**: ~1.5GB (first use)
@@ -89,7 +82,7 @@ Models are cached in `~/.cache/whisper/` for future use.
 
 #### Step 1: Start the Backend Server
 
-```bash
+
 # Navigate to project directory
 cd whisper-transcription
 
@@ -98,11 +91,10 @@ source whisper-venv/bin/activate
 
 # Start the Flask server
 python3 app.py
-```
+
 
 You should see:
 
-```
 ============================================================
 🎙️  Whisper Transcription Server
 ============================================================
@@ -110,7 +102,7 @@ Models: turbo, large (loaded on demand)
 Server: http://localhost:5001
 Press Ctrl+C to stop
 ============================================================
-```
+
 
 #### Step 2: Open the Frontend
 
@@ -118,9 +110,9 @@ The frontend (`index.html`) is automatically served by the Flask backend.
 
 **Open your web browser and navigate to:**
 
-```
+
 http://localhost:5001
-```
+
 
 The web interface will load automatically. You should see:
 - A purple gradient background
@@ -199,21 +191,21 @@ On Apple M4 Pro (24GB RAM):
 ### Change Port
 
 Edit `app.py` (last line):
-```python
+python
 app.run(host='127.0.0.1', port=5001, debug=False)  # Change port here
-```
+
 
 And `index.html` (JavaScript section, near the top):
-```javascript
+javascript
 const API = 'http://localhost:5001';  // Change port here
-```
+
 
 ### Adjust File Size Limit
 
 Edit `app.py` (line ~19):
-```python
+python
 MAX_FILE_SIZE = 500 * 1024 * 1024  # 500MB - change as needed
-```
+
 
 ### Add More Models
 
@@ -227,18 +219,18 @@ The system supports all Whisper models:
 
 To add more models, edit the model dropdown in `index.html`:
 
-```html
+html
 <select id="model">
     <option value="turbo">Turbo (Fast)</option>
     <option value="large">Large (Best Quality)</option>
     <option value="medium">Medium (Balanced)</option>  <!-- Add this -->
     <option value="small">Small (Lightweight)</option>  <!-- Add this -->
 </select>
-```
+
 
 ## Project Structure
 
-```
+
 whisper-transcription/
 ├── app.py              # Flask backend server
 ├── index.html          # Web interface (frontend)
@@ -247,7 +239,7 @@ whisper-transcription/
 ├── .gitignore         # Git ignore rules
 ├── LICENSE            # MIT License
 └── README.md          # This file
-```
+
 
 ## Troubleshooting
 
@@ -262,7 +254,7 @@ To use port 5000 instead:
 
 ### Server Won't Start
 
-```bash
+
 # Check if virtual environment is activated
 source whisper-venv/bin/activate
 
@@ -271,7 +263,7 @@ pip install -r requirements.txt
 
 # Check Python version (should be 3.8-3.12)
 python3 --version
-```
+
 
 ### Frontend Shows "Server not running"
 
@@ -289,23 +281,23 @@ python3 --version
 
 ### "Module not found" Error
 
-```bash
+
 # Make sure you're in the virtual environment
 source whisper-venv/bin/activate
 
 # Reinstall all dependencies
 pip install -r requirements.txt
-```
+
 
 ### FFmpeg Not Found
 
-```bash
+
 # Reinstall FFmpeg
 brew reinstall ffmpeg
 
 # Verify installation
 ffmpeg -version
-```
+
 
 ### "Turbo cannot translate" Error
 
@@ -318,17 +310,17 @@ The Turbo model does not support translation. To translate audio:
 
 If model download is interrupted:
 
-```bash
+
 # Clear the cache
 rm -rf ~/.cache/whisper/
 
 # Restart the server (it will re-download)
 python3 app.py
-```
+
 
 ### Browser Can't Connect
 
-```bash
+
 # Check if server is running
 # You should see the server banner in terminal
 
@@ -337,7 +329,7 @@ http://127.0.0.1:5001
 
 # Check firewall settings
 # System Settings → Network → Firewall
-```
+
 
 ## Security & Privacy
 
@@ -358,7 +350,7 @@ Afrikaans, Arabic, Armenian, Assamese, Azerbaijani, Bashkir, Basque, Belarusian,
 
 You can also use Whisper directly from the command line:
 
-```bash
+
 # Activate virtual environment
 source whisper-venv/bin/activate
 
@@ -370,38 +362,38 @@ whisper audio.mp3 --model large --task translate
 
 # Output to specific format
 whisper audio.mp3 --model turbo --output_format txt
-```
+
 
 ### Batch Processing
 
 For multiple files, create a simple script:
 
-```bash
+
 #!/bin/bash
 for file in *.mp3; do
     whisper "$file" --model turbo --output_dir ./transcriptions/
 done
-```
+
 
 ### API Usage
 
 You can also call the API directly:
 
-```bash
+
 curl -X POST http://localhost:5001/api/transcribe \
   -F "audio=@audio.mp3" \
   -F "model=turbo" \
   -F "task=transcribe"
-```
+
 
 ## Development
 
 ### Running in Debug Mode
 
 Edit `app.py` (last line):
-```python
+python
 app.run(host='127.0.0.1', port=5001, debug=True)  # Enable debug mode
-```
+
 
 Debug mode provides:
 - Auto-reload on code changes
@@ -419,6 +411,30 @@ The frontend is a single HTML file (`index.html`) with inline CSS and JavaScript
 - Translation quality varies by language pair
 - Turbo model does not support translation
 
+## Windows Installation
+
+### Requirements
+- Windows 10/11
+- 8GB RAM minimum (16GB recommended)
+- No GPU required (CPU-only mode)
+
+### Setup
+1. Install Python 3.8-3.12 from python.org
+2. Install FFmpeg:
+   - Via Chocolatey: `choco install ffmpeg`
+   - Or download from ffmpeg.org
+3. Clone the repo
+4. Create virtual environment: `python -m venv whisper-venv`
+5. Activate: `whisper-venv\Scripts\activate`
+6. Install: `pip install -r requirements.txt`
+7. Run: `python app.py`
+8. Open browser: `http://localhost:5001`
+
+### Performance on Windows
+- **8GB RAM**: Turbo model works well
+- **16GB RAM**: Both Turbo and Large work great
+- **GPU**: Optional, not required
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
@@ -428,18 +444,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - [OpenAI Whisper](https://github.com/openai/whisper) - The amazing speech recognition model
 - [Flask](https://flask.palletsprojects.com/) - Web framework
 - [FFmpeg](https://ffmpeg.org/) - Audio processing
-
-## Support
-
-If you encounter issues:
-
-1. Check the [Troubleshooting](#troubleshooting) section above
-2. Review the [Whisper GitHub Issues](https://github.com/openai/whisper/issues)
-3. Open an issue in this repository with:
-   - Your Python version (`python3 --version`)
-   - Your OS version
-   - Error messages from the terminal
-   - Steps to reproduce the issue
 
 ## FAQ
 
