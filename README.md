@@ -95,13 +95,13 @@ python3 app.py
 
 You should see:
 
-============================================================
-🎙️  Whisper Transcription Server
-============================================================
-Models: turbo, large (loaded on demand)
-Server: http://localhost:5001
-Press Ctrl+C to stop
-============================================================
+##### ============================================================
+##### 🎙️ Whisper Transcription Server
+##### ============================================================
+##### Models: turbo, large (loaded on demand)
+##### Server: http://localhost:5001
+##### Press Ctrl+C to stop
+##### ============================================================
 
 
 #### Step 2: Open the Frontend
@@ -261,7 +261,7 @@ source whisper-venv/bin/activate
 # Reinstall dependencies
 pip install -r requirements.txt
 
-# Check Python version (should be 3.8-3.12)
+# Check Python version
 python3 --version
 
 
@@ -333,12 +333,12 @@ http://127.0.0.1:5001
 
 ## Security & Privacy
 
-- ✅ **All processing is local** - no data sent to external servers
-- ✅ **Temporary files** are automatically deleted after transcription
-- ✅ **No internet required** after initial model download
-- ✅ **No logging** of transcription content
-- ✅ **Open source** - inspect the code yourself
-- ✅ **No cookies or tracking**
+- **All processing is local** - no data sent to external servers
+- **Temporary files** are automatically deleted after transcription
+- **No internet required** after initial model download
+- **No logging** of transcription content
+- **Open source** - inspect the code yourself
+- **No cookies or tracking**
 
 ## Supported Languages
 
@@ -419,7 +419,7 @@ The frontend is a single HTML file (`index.html`) with inline CSS and JavaScript
 - No GPU required (CPU-only mode)
 
 ### Setup
-1. Install Python 3.8-3.12 from python.org
+1. Install Python from python.org
 2. Install FFmpeg:
    - Via Chocolatey: `choco install ffmpeg`
    - Or download from ffmpeg.org
@@ -471,11 +471,11 @@ A: Yes! Both this project and Whisper are MIT licensed.
 ## Changelog
 
 ### Version 1.0 (Current)
-- ✨ Added dynamic model selection (Turbo/Large)
-- 🔧 Changed default port to 5001 (avoid macOS AirPlay conflict)
-- ⚡ Added model caching for faster switching
-- 🛡️ Improved error handling and validation
-- 🎨 Updated UI with model selection dropdown
-- 📝 Added comprehensive documentation
+- Added dynamic model selection (Turbo/Large)
+- Changed default port to 5001 (avoid macOS AirPlay conflict)
+- Added model caching for faster switching
+- Improved error handling and validation
+- Updated UI with model selection dropdown
+- Added comprehensive documentation
 
 ---
